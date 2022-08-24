@@ -87,7 +87,7 @@ public partial class MdlFile : IWritable
     public MdlFile( byte[] data )
     {
         using var stream = new MemoryStream( data );
-        using var r      = new BinaryReader( stream );
+        using var r      = new Lumina.Data.LuminaBinaryReader( stream );
 
         var header = LoadModelFileHeader( r );
         LodCount         = header.LodCount;
@@ -197,7 +197,7 @@ public partial class MdlFile : IWritable
         RemainingData = r.ReadBytes( ( int )( r.BaseStream.Length - r.BaseStream.Position ) );
     }
 
-    private MdlStructs.ModelFileHeader LoadModelFileHeader( BinaryReader r )
+    private MdlStructs.ModelFileHeader LoadModelFileHeader( Lumina.Data.LuminaBinaryReader r )
     {
         var header = MdlStructs.ModelFileHeader.Read( r );
         Version                    = header.Version;

@@ -61,7 +61,7 @@ public class CutsceneCharacters : IDisposable
     private unsafe delegate ulong CopyCharacterDelegate( GameObject* target, GameObject* source, uint unk );
 
     [Signature( "E8 ?? ?? ?? ?? 0F B6 9F ?? ?? ?? ?? 48 8D 8F", DetourName = nameof( CopyCharacterDetour ) )]
-    private readonly Hook< CopyCharacterDelegate > _copyCharacterHook = null!;
+    private readonly unsafe Hook< CopyCharacterDelegate > _copyCharacterHook = null!;
 
     private unsafe ulong CopyCharacterDetour( GameObject* target, GameObject* source, uint unk )
     {

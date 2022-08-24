@@ -99,7 +99,7 @@ public partial class Configuration
 
             // Ensure the right meta files are loaded.
             DeleteMetaTmp();
-            Penumbra.CharacterUtility.LoadCharacterResources();
+            // Penumbra.CharacterUtility.LoadCharacterResources();
             ResettleSortOrder();
             ResettleCollectionSettings();
             ResettleForcedCollection();
